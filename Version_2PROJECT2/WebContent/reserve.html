@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="css/validation.css">
+<html>
+<head>
+
+<script type="text/javascript" src="js/reserveValidation.js"></script>
+	<title>Reservation</title>
+	
+</head>
+<body align="center">
+	<h1> Reservation Form</h1>
+	<h3>* denotes mandatory</h3>
+	<form id="RegForm"  onsubmit="return validation()" >
+	   <table align="center">
+	   <tr>
+			<th>Full name* :</th>
+			<td><input type="text" name="name" placeholder="Name" value="" onkeyup="validation()">
+			</td>
+			<td>
+			<span id ="nameForm" style="color:red; display:none;">*Enter Valid Name</span> 
+			</td>
+		</tr>
+      <tr>
+			<th>Email* :</th>
+			<td><input type="text" name="email" placeholder="email" value="" onkeypress="validation()">
+			</td>
+			<td>
+			<span id ="emailForm" style="color:red; display:none;">*Enter valid E-mail</span> 
+			</td>
+		</tr>
+		
+		<tr>
+			<th>Select Tour Package* :</th>
+			<td>
+				<select name="selectOption" required>
+				<option selected value="0" disabled="disabled">select a package</option>
+				<option value="Goa">Goa</option>
+				<option value="Kashmir">Kashmir</option>
+				<option value="Rajasthan">Rajasthan</option>
+			    </select>
+			</td>
+			<td>
+			<span id ="selectForm" style="color:red; display:none;">*select one</span> 
+			</td>
+		</tr>
+		
+		<tr>
+			<th>Arrival Date* :</th>
+			<td>
+				<input type="Date" name="date" onclick="validation();datecheck();todayDate()"><br><br> 
+			</td>
+			<td>
+			<span id ="dateForm" style="color:red; display:none;">*Enter Valid Date</span> 
+			</td>
+		</tr>
+		
+		<tr>
+			<th>Number of Persons* :</th>
+			<td>
+				<input type="number" name="personNumber" placeholder="Eg:5" value="" onclick="validation()"> 
+			</td>
+			<td>
+			<span id ="personForm" style="color:red; display:none;">*Enter Valid Number</span> 
+			</td>
+		</tr>
+		
+		<tr>
+			<th>What you want to avail ?* :</th>
+			<td>
+				Boarding<input id="check" type="checkbox" name="check[]" value="boarding" onselect="validation();checkSelect()"><br>
+				Food<input id="check" type="checkbox" name="check[]" value="food" onselect="validation();checkSelect()"><br>
+				Sight seeing<input id="check" type="checkbox" name="check[]" value="sight seeing" onselect="validation();checkSelect()">
+			</td>
+			<td>
+			<span id="availForm"" style="color:red; display:none;">*select one</span> 
+			</td>
+		</tr>
+		
+		<tr>
+			<th>Discount Coupon code :</th>
+			<td>
+				<input type="text" name="discountcode" placeholder="" value="" onkeypress="validation()">
+			</td>
+			<td>
+			<span id ="discountForm" style="color:red; display:none;">*Alpha Numeric Code</span> 
+			</td>
+		</tr>
+		
+		<tr>
+			<th>Terms and conditions* :</th>
+			<td>
+				<input id="agree" type="radio" name="agree" value="agree" onclick="validation()">I agree
+				<input id="agree"  type="radio" name="agree" value="disagree" onclick="validation()">I disagree<br><br>
+			</td>
+			<td>
+			<span id ="termsForm" style="color:red; display:none;">*select one</span> 
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<button type="submit" class="btn btn-large btn-primary" name="submit" onsubmit="validation()">Complete Reservation</button>
+		
+			</td>
+		</tr>
+		
+		</table>
+	</form>	
+</body>
+</html>
